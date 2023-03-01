@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mango:
+    image: hkalexling/mango
+    container_name: mango
+    expose:
+      - 8117
+    ports:
+      - 8117:9000
+    volumes:
+      - ./mango:/root/mango
+      - ./config/mango:/root/.config/mango
+      - <YOUR_PATH>:/root/mango/library

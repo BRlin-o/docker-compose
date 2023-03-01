@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  portainer_data:
+    image: portainer/portainer-ce:2.11.1
+    container_name: portainer-app
+    ports:
+      - 8117:8000
+      - 9117:9443
+    volumes:
+      - ./docker.sock:/var/run/docker.sock
+      - ./portainer_data:/data
+    restart: always

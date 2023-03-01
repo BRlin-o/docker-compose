@@ -1,0 +1,16 @@
+version: "2.1"
+
+services:
+  ms365-e5-renew-x:
+    image: hanhongyong/ms365-e5-renew-x:latest
+    container_name: ms365-e5-renew-x
+    environment:
+      - TZ=Asia/Taiwan
+    volumes:
+      - ./ms365-e5-renew-x/Deploy:/app/Deploy
+      - ./ms365-e5-renew-x/appdata:/app/appdata
+    ports:
+      - 1066:1066
+    restart: always
+    privileged: true
+    user: root

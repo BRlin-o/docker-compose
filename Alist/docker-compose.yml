@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    alist:
+        restart: always
+        volumes:
+            - './data/:/opt/alist/data' # Image內系統的文件
+            - '<YOUR_PATH>:/opt/alist/local' # 本地文件夹挂载
+        ports:
+            - '8117:5244'
+        environment:
+            - PUID=0
+            - PGID=0
+            - UMASK=022
+        container_name: alist
+        image: 'xhofe/alist:latest'

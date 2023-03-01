@@ -1,0 +1,10 @@
+version: "3"
+services:
+  ctorrent:
+    container_name: clorrent-app-1
+    image: jpillora/cloud-torrent
+    restart: always
+    ports:
+      - "8117:3000"
+    volumes:
+      - <YOUR_PATH>:/downloads # 本地文件夹挂载

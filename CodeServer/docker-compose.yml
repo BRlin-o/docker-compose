@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  code-server:
+    container_name: code-server
+    image: codercom/code-server
+    build: ./build
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+    ports:
+      - 8117:8080
+    volumes:
+      - <YOUR_PATH>:/home/coder/
+    environment:
+      - PASSWORD=<YOUR_PASSWORD>
+      - NVIDIA_VISIBLE_DEVICES=0 # GPU ID
+    command: nvidia-smi
+    restart: always

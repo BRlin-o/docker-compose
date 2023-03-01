@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ddns:
+    image: 'jeessy/ddns-go'
+    network_mode: "host"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=100
+    ports:
+      - 8117:9876
+    volumes:
+      - <YOUR_PATH>:/root
